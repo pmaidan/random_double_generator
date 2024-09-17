@@ -1,22 +1,23 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
 using namespace std;
 
-double fRand(double MIN, double MAX)
-    {
-        double f;
-        const double MIN = 1.00, MAX = 100.00;
+double fRand(double min, double max)
+{
+    double f;
 
-        unsigned seed = time(0);
-        srand(seed);
-        
-        double f = (double)rand() / RAND_MAX;
-        return MIN + (MAX - MIN) * f;
-    }
+    f = (double)rand() / RAND_MAX;
+    return min + (max - min) * f;
+}
 
 int main()
 {
-    cout << f;
+    unsigned seed = time(0);
+    srand(seed);
+
+    cout << fixed << setprecision(2);
+    cout << fRand(10.0, 100.0);
     return 0;
 }
